@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="myApp"  ng-controller="myCtrl" lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script src="http://ui-grid.info/release/ui-grid.js"></script>
+
+<link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+<script src="/app.js"></script>
+<div class="container">
+    <div class=" row btn-group" role="group"  style="margin-top:10px;margin-left:50px;margin-bottom:30px">
+        <button type="button" class="btn-primary"
+                ng-click ="displaySearch()">Search </button>
+        <button type="button" class="btn-primary"
+                ng-click ="displayAddUpdate()">Add  Update</button>
+    </div>
+    </br>
+
+    <div class="panel panel-primary" ng-show="displaySearchButton">
+        <div class="panel-body">
+            Search Books
+           <div class="row" style="margin-top:10px;margin-left:50px">
+               Please Select Search Type
+               <select
+                       style="width:150px"
+                       ng-change = "refreshPage()"
+                       ng-model="searchType" ng-options="x for x in searchTypes">
+               </select>
+               <input type="text"  ng-model="searchCriteria" ng-show="displayText">
+           </div>
+            <div class="row" style="margin-top:10px;margin-left:250px">
+               <button class ="btn-primary" type="submit" ng-click ="submit()">Submit</button>
+           </div>
+        </div>
+        <div class="row"  style="margin-left:150px;width:850px " ui-grid="searchBookGridOptions">
+        </div>
+    </div>
+
+    <div class="panel panel-primary" ng-show="displayUpdateButton">
+        <div class="panel-body">
+            Update Books
+            <div class="row" style="margin-top:10px;margin-left:150px">
+                Please Enter Book Details:
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                    <label >Book Name :</label>
+                    <input type="text"  ng-model="bookDetails.bookName">
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                <label >Author Name :</label>
+                    <input type="text"  ng-model="bookDetails.authorName" >
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                <label >Publisher Name :</label>
+                    <input type="text"  ng-model="bookDetails.publisherName">
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                    <label >Book Available :</label>
+                    <input type="text"  ng-model="bookDetails.availability">
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                <label >Book Type:</label>
+                    <input type="text"  ng-model="bookDetails.bookType">
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                <label >Libary  Name :</label>
+                    <input type="text"  ng-model="bookDetails.libraryName">
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                    <label >Location :</label>
+                    <input type="text"  ng-model="bookDetails.location">
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 150px">
+                    <label >Telephone :</label>
+                    <input type="text"  ng-model="bookDetails.telephone">
+                </div>
+                <div class="row form-group" style="margin-top:10px;padding-left: 100px">
+                    <button class ="btn-primary" type="AddBooks" ng-click ="addBooks()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
