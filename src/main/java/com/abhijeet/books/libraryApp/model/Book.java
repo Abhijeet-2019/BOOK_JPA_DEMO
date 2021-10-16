@@ -10,7 +10,12 @@ import java.io.Serializable;
 @Component
 @Entity
 @Table(name = "BOOKS_TABLE")
-public class Book {
+public class Book implements  Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    public Book(){
+    
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BOOK_ID")

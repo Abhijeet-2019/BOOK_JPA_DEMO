@@ -14,7 +14,12 @@ import java.util.Set;
 @Component
 @Entity
 @Table(name = "LIBRARY_TABLE")
-public class Library {
+public class Library  implements  Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    public Library(){
+    
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LIBRARY_ID")
